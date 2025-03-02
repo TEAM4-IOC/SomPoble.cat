@@ -1,33 +1,38 @@
 
 package logica;
 
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Empresario extends Persona{
     
-    private int id_empresario;
+   // private int id_empresario;
     private String nombreNegocio;
+    @OneToMany(mappedBy="empre")
+    private List<Reserva>listaReservas;
+    @OneToOne
+    private Usuario unUsuario;
+    @OneToOne
+    private Horario unHorario;
     private String direccion;
     private String sector;
     private String CIF_NIF;
+    private String horario;
+    @OneToMany
+    private List servicios;
 
     public Empresario() {
     }
 
-    public Empresario(int id_empresario, String nombreNegocio, String direccion, String sector, String CIF_NIF, String nombre, String apellidos, String email, String contraseña, String teléfono) {
-        super(nombre, apellidos, email, contraseña, teléfono);
-        this.id_empresario = id_empresario;
+    public Empresario(String nombreNegocio, String direccion, String sector, String CIF_NIF, String dni, String nombre, String apellidos, String email, String contraseña, String teléfono) {
+        super(dni, nombre, apellidos, email, contraseña, teléfono);
         this.nombreNegocio = nombreNegocio;
         this.direccion = direccion;
         this.sector = sector;
         this.CIF_NIF = CIF_NIF;
-    }
-
-    public int getId_empresario() {
-        return id_empresario;
-    }
-
-    public void setId_empresario(int id_empresario) {
-        this.id_empresario = id_empresario;
     }
 
     public String getNombreNegocio() {
@@ -62,7 +67,5 @@ public class Empresario extends Persona{
         this.CIF_NIF = CIF_NIF;
     }
 
-    
-    
     
 }

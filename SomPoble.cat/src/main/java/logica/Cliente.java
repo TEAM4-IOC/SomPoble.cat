@@ -1,30 +1,26 @@
 
 package logica;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Cliente extends Persona {
     
-    private int id_cliente;
+    @OneToOne
+    private Usuario unUsuario;
+   
 
     public Cliente() {
         
     }
 
-    public Cliente(int id_cliente, String nombre, String apellidos, String email, String contraseña, String teléfono) {
-        super(nombre, apellidos, email, contraseña, teléfono);
-        this.id_cliente = id_cliente;
-        
+    public Cliente(String dni, String nombre, String apellidos, String email, String contraseña, String teléfono) {
+        super(dni, nombre, apellidos, email, contraseña, teléfono);
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+
+    
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
-    }
-
-  
-
-}
 

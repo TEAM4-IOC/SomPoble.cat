@@ -1,9 +1,13 @@
 
 package logica;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Usuario {
     
+    @Id
     private int id_usuario;
     private String nombreUsuario;
     private String contraseña;
