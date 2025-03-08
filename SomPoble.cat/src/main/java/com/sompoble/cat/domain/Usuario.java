@@ -1,4 +1,3 @@
-
 package com.sompoble.cat.domain;
 
 import java.io.Serializable;
@@ -6,8 +5,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,10 +22,8 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_USUARIO")
-    @NotNull
     private Long idUsuario;
     
-    @Enumerated(EnumType.STRING)
     @Column(name = "TIPO_USUARIO", nullable = false)
     @NotNull
     private String tipoUsuario;
@@ -45,17 +40,16 @@ public class Usuario implements Serializable {
 
     @Column(name = "FECHA_ALTA", updatable = false, nullable = false)
     @CreationTimestamp
-    @NotNull
     private LocalDateTime fechaAlta;
 
     @Column(name = "FECHA_MODIFICACION", nullable = false)
     @UpdateTimestamp
-    @NotNull
     private LocalDateTime fechaModificacion;
     
-    @OneToMany(mappedBy = "DESTINATARIO")
-    @NotNull
-    private List<Notificacion> notificaciones;
+    //TODO: es importante revisar esta relacion ya que da error en el test y no veo el porque
+    /*
+    @OneToMany(mappedBy = "destinatario")
+    private List<Notificacion> notificaciones;*/
 
     public Usuario() {
     }

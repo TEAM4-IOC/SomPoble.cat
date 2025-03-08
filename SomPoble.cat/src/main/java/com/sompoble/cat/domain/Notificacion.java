@@ -22,11 +22,10 @@ public class Notificacion implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_NOTIFICACION")
-    @NotNull
     private Long idNotificacion;
     
     @ManyToOne
-    @JoinColumn(name = "ID_DESTINATARIO", referencedColumnName = "ID_USUARIO", nullable = false)
+    @JoinColumn(name = "USUARIO_ID", nullable = false)
     @NotNull
     private Usuario destinatario;
 

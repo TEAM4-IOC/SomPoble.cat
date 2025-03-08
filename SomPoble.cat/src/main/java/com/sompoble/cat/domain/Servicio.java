@@ -1,4 +1,3 @@
-
 package com.sompoble.cat.domain;
 
 import java.io.Serializable;
@@ -24,7 +23,6 @@ public class Servicio implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_SERVICIO")
-    @NotNull
     private Long idServicio;
     
     @Column(name = "NOMBRE", nullable = false, length = 100) 

@@ -20,7 +20,6 @@ public class Evento implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_EVENTO")
-    @NotNull
     private Long idEvento;
     
     @Column(name = "NOMBRE", nullable = false, length = 100) 
@@ -28,7 +27,7 @@ public class Evento implements Serializable {
     @Size(max = 100)
     private String nombre;
     
-    @Column(name = "UBICACION", nullable = false) 
+    @Column(name = "DESCRIPCION", nullable = false) 
     @NotNull
     private String descripcion;
     

@@ -24,11 +24,10 @@ public class Empresa implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_EMPRESA")
-    @NotNull
     private Long idEmpresa;
     
     @OneToOne
-    @JoinColumn(name="ID_EMPRESA", referencedColumnName = "ID_EMPRESA", nullable = false)
+    @JoinColumn(name="ID_EMPRESARIO", nullable = false)
     @NotNull
     private Empresario empresario;
     
@@ -54,16 +53,20 @@ public class Empresa implements Serializable {
     
     @Column(name = "FECHA_ALTA", updatable = false, nullable = false)
     @CreationTimestamp
-    @NotNull
     private LocalDateTime fechaAlta;
 
     @Column(name = "FECHA_MODIFICACION", nullable = false)
     @UpdateTimestamp
-    @NotNull
     private LocalDateTime fechaModificacion;
 
-    @OneToMany(mappedBy = "EMPRESA")
+    @OneToMany(mappedBy = "empresa")
     private List<Reserva> reservas;
+    
+    @OneToMany(mappedBy = "empresa")
+    private List<Servicio> servicios;
+    
+    @OneToMany(mappedBy = "empresa")
+    private List<Horario> horarios;
 
     public Empresa() {
     }
@@ -134,5 +137,21 @@ public class Empresa implements Serializable {
 
     public void setReservas(List<Reserva> reservas) {
         this.reservas = reservas;
+    }
+    
+    public List<Servicio> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<Servicio> servicios) {
+        this.servicios = servicios;
+    }
+    
+    public List<Horario> getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(List<Horario> horarios) {
+        this.horarios = horarios;
     }
 }

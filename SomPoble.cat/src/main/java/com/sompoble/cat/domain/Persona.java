@@ -21,8 +21,7 @@ public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_PERSONA")
-    @NotNull
-    private Integer idPersona;
+    private Long idPersona;
     
     @Column(name = "DNI", nullable = false, length = 9) 
     @NotNull
@@ -51,12 +50,10 @@ public class Persona implements Serializable {
     
     @Column(name = "FECHA_ALTA", updatable = false, nullable = false)
     @CreationTimestamp
-    @NotNull
     private LocalDateTime fechaAlta;
 
     @Column(name = "FECHA_MODIFICACION", nullable = false)
     @UpdateTimestamp
-    @NotNull
     private LocalDateTime fechaModificacion;
 
     public Persona() {
@@ -70,8 +67,7 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
     
-    //Sergio: añadido solo el getId ya que como esta referenciado tanto aqui como en DB sera autoincremental
-    public Integer getIdPersona() {
+    public Long getIdPersona() {
         return idPersona;
     }
     

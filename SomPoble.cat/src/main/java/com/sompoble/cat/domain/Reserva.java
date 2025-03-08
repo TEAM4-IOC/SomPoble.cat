@@ -27,7 +27,6 @@ public class Reserva implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_RESERVA")
-    @NotNull
     private Long idReserva;
     
     @ManyToOne
@@ -41,7 +40,7 @@ public class Reserva implements Serializable {
     private Cliente cliente;
     
     @ManyToOne
-    @JoinColumn(name="ID_RESERVA", referencedColumnName = "ID_RESERVA", nullable = false)
+    @JoinColumn(name="ID_SERVICIO", referencedColumnName = "ID_SERVICIO", nullable = false)
     @NotNull
     private Servicio servicio;
     
